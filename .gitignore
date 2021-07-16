@@ -1,0 +1,10 @@
+
+# Builsystem 
+
+*.o
+*.i
+*.s
+*.asm
+*.exe
+*.a
+*.so
