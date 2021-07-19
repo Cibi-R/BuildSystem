@@ -1,4 +1,5 @@
-
+# Managing Projects with GNU Make
+# Chapter 1
 
 # Make program will read the make file and execute the first target it finds, If a target is included as a command-line argument,
 # that target is updated if no command line arguments are given, then the first target in the file is used, called the "default goal"
@@ -50,4 +51,21 @@ clean :
 #    it would execute for a particular target without actually executing them. ex. make main1 main2 --just-print
 # 5. It is also possible to set almost any makefile variable on the command line to override the default value or the value set in
 #    the makefile
+# Basic Makefile syntax
+# 1. Makefiles are usually structured top-down so that the most general target, often called all, is updated by default.
+#    More and more detailed targets follow with targets for program maintenance, such as a clean target to delete unwanted 
+#    temporary files, coming last
+# 2. As you can guess from these target names, targets do not have to be actual files, any name will do.
 # 
+# target1 target2 : prereq1 prereq2 prereq3
+#	command1
+#   command2
+#   command3
+#
+# 1. One or more targets appear to the left of the colon and zero or more prerequisites can appear to the right of the colon.
+#    If no prerequisites are listed to the right, then only the target(s) that do not exist are updated.
+# 2. The set of commands executed to update a target are sometimes called the command script, but most often just the commands
+# 3. Each command must begin with a tab character.This (obscure) syntax tells make that the characters that follow the tab are 
+#    to be passed to a subshell for execution
+# 4. The comment character for make is the hash or pound sign, #.
+# 5. Long lines can be continued using the standard Unix escape character backslash (\)
